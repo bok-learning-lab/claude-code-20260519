@@ -1,4 +1,4 @@
-# Claude.ai Setup Guide
+# Getting Started with Claude.ai
 
 A walk-through for using Claude's browser interface on the HUIT-provided plan, configuring the key settings, and trying one of the activities from the workshop (the interactive population pyramid).
 
@@ -15,6 +15,8 @@ Go to **[claude.ai](https://claude.ai)** and sign in. Check the **bottom-left co
 ---
 
 ## 2. Tour of the interface
+
+
 
 Once you're signed in, you'll land in a fresh chat. A quick map of what you're looking at:
 
@@ -34,6 +36,8 @@ Type a sanity-check prompt — something where you know the answer, e.g. *"What 
 
 ## 3. Models, and switching between them
 
+![alt text](https://files.slack.com/files-pri/T0HTW3H0V-F0B4UKAJU9F/screenshot_2026-05-19_at_9.29.35___am.png?pub_secret=100780b34a)
+
 At the bottom of the chat window, just below the message box, you'll see a model picker. The main three you'll encounter:
 
 | Model | Use when |
@@ -50,6 +54,10 @@ You can switch the model mid-conversation — it applies to your next message.
 
 ## 4. Settings: turning on memory (optional)
 
+Without memory turned on, each new chat is a fresh start: Claude remembers nothing from previous conversations — like the protagonist in *Memento*, every chat is its own self-contained day. What Claude can see during a chat is the **context window**: the system prompt, any saved memory entries, and the back-and-forth as it accumulates. Turning memory on is what lets information carry from one chat to the next, which is why it's worth understanding before you do.
+
+![alt text](https://files.slack.com/files-pri/T0HTW3H0V-F0B5M672GSU/animation.gif?pub_secret=8377dacf99)
+
 Click your **name (bottom-left)** → **Settings** → **Capabilities**.
 
 Look for **"Generate memory from chat history."**
@@ -65,6 +73,7 @@ If you've been using ChatGPT and have memories there you'd like to bring over, s
 ---
 
 ## 5. The plus (+) button: attaching context
+![alt text](https://files.slack.com/files-pri/T0HTW3H0V-F0B4LKXDY3V/animation_3.gif?pub_secret=625e28a642)
 
 Next to the message box is a **+** button. From there you can:
 
@@ -75,7 +84,6 @@ Next to the message box is a **+** button. From there you can:
 ---
 
 ## 6. Worked example: build an interactive population pyramid
-
 This activity demonstrates **artifacts** — interactive web tools Claude builds inside the chat by writing and running code.
 
 You'll need the file `wpp2024_population_country.csv` from the workshop materials folder (`claude-cowork-20260518/population-data/`).
@@ -86,16 +94,19 @@ You'll need the file `wpp2024_population_country.csv` from the workshop material
    > Can you create an interactive population pyramid as an artifact from the attached CSV data? Please compare Nigeria and Japan.
 4. Send. Claude will think for a moment, then render an **artifact panel** on the right side of the screen with a live, interactive chart.
 
-If the chart isn't quite what you wanted, say so in the next message — for example: *"Move youth to the bottom, elderly to the top,"* or *"Show males and females on opposite sides of a single axis,"* or *"Add a country selector so I can swap in any pair."* Claude will rewrite the artifact in place.
-
+If the chart isn't quite what you wanted, say so in the next message — for example: *"Move youth to the bottom, elderly to the top,"* or *"Show males and females on opposite sides of a single axis."* Claude will rewrite the artifact in place.
 
 ### How this is different from an image-generation model
 
-In the workshop we contrasted this with the population pyramids that Midjourney produced when asked the same thing. They looked like population pyramids — correct overall shape, plausible labels, age bands running up the y-axis — but the bars weren't tied to any real data. An image model produces pixels that resemble similar images it has seen; it has no representation of Nigeria's actual age distribution, only of what charts about it tend to look like.
+In the workshop we contrasted this with what Midjourney produced when asked for the same comparison. The results were striking — pretty, vaguely chart-shaped artwork — but they weren't population pyramids. There were no real bars tied to real ages and real population counts; just an image that gestured at the idea of a chart about populations. An image model produces pixels that resemble similar images it has seen; it has no representation of Nigeria's actual age distribution, only of what a chart about it tends to look like.
+
+![alt text](https://files.slack.com/files-pri/T0HTW3H0V-F0B42LNK00P/process-black_comparison_of_population_pyramids_for_nigeria_a_87465a7f-14fb-41a8-b3ff-6d10fe4c698f_3.png?pub_secret=7c907539d5)
 
 What Claude does with an artifact is structurally different. Given the CSV and the request, it writes a small program that reads the data and renders the chart, then runs that program inside the chat. The bars correspond to the real numbers in the file. You can interact with the result, change parameters, and ask Claude to revise it — because the output is code, not a picture.
 
-This is the broader point about Claude's tool use (running code here; web search and file reading in other situations): the tools let Claude produce outputs that are grounded in something verifiable, rather than predictions of what a plausible answer would look like. It's the same lesson as the arithmetic example — multiplication done by code is right; multiplication done by next-token prediction is roughly right and confidently wrong. The artifact is the visual version of that distinction.
+![alt text](https://files.slack.com/files-pri/T0HTW3H0V-F0B4C6G2F7D/screenshot_2026-05-18_at_11.09.07___am.png?pub_secret=a6482e7fc7)
+
+This is the broader point about Claude's tool use (running code here; web search and file reading in other situations): the tools let Claude produce outputs that are grounded in something verifiable, rather than predictions of what a plausible answer would look like. 
 
 The basic loop — **context in → operation → output** — is the same one you'll use whether you're making a visualization, drafting a rubric, or organizing files.
 
@@ -106,7 +117,7 @@ The basic loop — **context in → operation → output** — is the same one y
 - **One topic per chat.** When you switch tasks, start a new chat. Long unfocused chats accumulate clutter and Claude starts losing the thread (this is called "context rot" — there's a paper in your workshop folder if you're curious).
 - **Tell Claude what good looks like.** Instead of *"summarize this paper,"* try *"summarize this paper in three bullets aimed at a sophomore who hasn't taken the prerequisite."* The more specific the target, the better the output.
 - **Iterate, don't restart.** If the first answer is 70% right, reply with what to change rather than opening a new chat.
-- **Web search on by default for current events.**
+- **Web search on by default for current events.** Without it Claude is guessing at anything past its training cutoff.
 
 ---
 
