@@ -252,21 +252,17 @@ If you'd rather work with Claude in a dedicated chat panel inside VS Code — wi
 
 1. In VS Code, open the **Extensions** view: click the puzzle-piece icon in the Activity Bar on the left, or press `Ctrl+Shift+X`.
 
-   [screenshot: VS Code Extensions view with the search bar visible]
+![alt text](https://files.slack.com/files-pri/T0HTW3H0V-F0B4UFXUW7L/screenrecording2026-05-19at11.40.12am-ezgif.com-video-to-gif-converter.gif?pub_secret=46fbad2613)
 
 2. Search for **Claude Code**. Install the one published by **Anthropic** — there are similarly-named knock-offs, so check the publisher field before clicking Install.
 
-   [screenshot: marketplace result showing "Claude Code" by Anthropic, with Install button]
-
 3. After it installs, click the **Spark icon** (✱) that appears in the Activity Bar on the left to open the Claude Code panel. If you don't see the icon, open the Command Palette (`Ctrl+Shift+P`), type **Claude Code**, and pick **"Claude Code: Open in Sidebar"**.
 
-   [screenshot: VS Code with Spark icon highlighted and the Claude side panel open]
+![alt text](https://files.slack.com/files-pri/T0HTW3H0V-F0B4UGPE0LA/screenrecording2026-05-19at11.40.54am-ezgif.com-video-to-gif-converter.gif?pub_secret=3bdbbcbfd0)
 
 4. The first time you open the panel, a sign-in screen appears. Click **Sign in** and complete authorization in the browser window that opens. Log in with your paid Claude account and approve the request — same flow as Step 6.
 
 5. Back in VS Code, try a message in the chat panel, e.g. *"What files are in this project?"* When Claude proposes edits, they render as inline diffs in the panel — click a diff to expand it, then accept or reject from the panel itself.
-
-   [screenshot: Claude side panel with a response and an inline diff visible]
 
 Notes:
 
